@@ -20,6 +20,16 @@ app.post('/todos',(req,res)=>{
 	});
 });
 
+app.get('/todos',(req,res)=>{
+	Todo.find().then((todos)=>{
+		res.send({
+			todos
+		});
+	},(e)=>{
+		console.log(e);
+	});
+});
+
 app.listen(3000,()=>{
 	console.log('Port listening to 3000');
 });
